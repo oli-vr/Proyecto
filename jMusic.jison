@@ -2,39 +2,28 @@
 
 /* lexical grammar */
 %lex
-%%
-/*%{
-  var notas_musicales = { DO : 'DO', RE : 'RE', MI : 'MI', FA : 'FA', SOL : 'SOL', LA : 'LA', SI : 'SI' };
-  var silencios = { R : 'R', B : 'B', N : 'N', C : 'C', SC : 'SC' };
-%}*/
 
-\s+                   /* skip whitespace */
-[0-9]+                return 'TONO'
-"-"                   return '-'
-";"                   return ';'
-"DO"                  return 'DO'
-"RE"                  return 'RE' 
-"MI"                  return 'MI'
-"FA"                  return 'FA'
-"SOL"                 return 'SOL'
-"LA"                  return 'LA'
-"SI"                  return 'SI'
-"R"                   return 'R'
-"B"                   return 'B'
-"N"                   return 'N'
-"C"                   return 'C'
-"SC"                  return 'SC'
-//"#"                   return '#'
-//[a-zA-Z][a-zA-Z]*     return notas_musicales[yytext]
-//[a-zA-Z][a-zA-Z]*     return silencios[yytext]
-//<<EOF>>               return 'EOF'
-.                     return 'INVALID'
+%{
+  var variables_musicales = { DO : 'DO', RE : 'RE', MI : 'MI', FA : 'FA', SOL : 'SOL', LA : 'LA', SI : 'SI', R : 'R', B : 'B', N : 'N', C : 'C', SC : 'SC' };
+%}
+
+%%
+
+\s+                     /* skip whitespace */
+[0-9]+                  return 'TONO'
+"-"                     return '-' 
+";"                     return ';'
+"b"                     return 'b'
+"#"                     return '#'
+[A-Z]+                  return variables_musicales[yytext]
+//<<EOF>> return 'EOF'
+. return 'INVALID'
 
 /lex
-	
+
 
 /* operator associations and precedence */
-%left '-' 
+%left '-'
 %left ';'
 %start P
 
@@ -42,36 +31,55 @@
 P         :   CANCION
                      {
                          return [ "<ul>\n<li> Música<p> "+ $$ + "\n </ul>"];
-                     }          
+                     }
           ;
 
 CANCION   :   NOTA ";"
           |   NOTA ";" CANCION
-              { $$ += $3; }
+                 { $$ += $3; }
           ;
         
 NOTA      :   NOMBRE "-" SILENCIO "-" TONO
                  { $$ = "{" + $1 + ", " + $3 + ", " + $5 + "} "; }
-          //|   NOMBRE "#" "-" SILENCIO "-" TONO          En este caso deberiamos de sumar un 1 al valor que nos de NOMBRE,
-          //                                              hay que comprobar que es una nota con sostenido         
+
           |   SILENCIO
                  { $$ = "{" + $1 + "} "; }
           ;
           
 NOMBRE    :   DO
                  { $$ = 0; }
+          |   DO '#'
+                 { $$ = 1; }
+          |   RE 'b'
+                 { $$ = 2; }
           |   RE
-                 { $$ = 2; }              
-          |   MI
+                 { $$ = 3; }
+          |   RE '#'
                  { $$ = 4; }
-          |   FA
+          |   MI 'b'
                  { $$ = 5; }
-          |   SOL
+          |   MI
+                 { $$ = 6; }
+          |   FA
                  { $$ = 7; }
-          |   LA
+          |   FA '#'
+                 { $$ = 8; }
+          |   SOL 'b'
                  { $$ = 9; }
-          |   SI
+          |   SOL
+                 { $$ = 10; }
+          |   SOL '#'
                  { $$ = 11; }
+          |   LA 'b'
+                 { $$ = 12; }
+          |   LA
+                 { $$ = 13; }
+          |   LA '#'
+                 { $$ = 14; }
+          |   SI 'b'
+                 { $$ = 15; }
+          |   SI
+                 { $$ = 16; }
           ;
           
 SILENCIO  :   R
@@ -85,4 +93,3 @@ SILENCIO  :   R
           |   SC
                  { $$ = 4; }
           ;
-          

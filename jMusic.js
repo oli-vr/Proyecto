@@ -2,9 +2,9 @@
 var jMusic = (function(){
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"P":3,"CANCION":4,"NOTA":5,";":6,"NOMBRE":7,"-":8,"SILENCIO":9,"TONO":10,"DO":11,"RE":12,"MI":13,"FA":14,"SOL":15,"LA":16,"SI":17,"R":18,"B":19,"N":20,"C":21,"SC":22,"$accept":0,"$end":1},
-terminals_: {2:"error",6:";",8:"-",10:"TONO",11:"DO",12:"RE",13:"MI",14:"FA",15:"SOL",16:"LA",17:"SI",18:"R",19:"B",20:"N",21:"C",22:"SC"},
-productions_: [0,[3,1],[4,2],[4,3],[5,5],[5,1],[7,1],[7,1],[7,1],[7,1],[7,1],[7,1],[7,1],[9,1],[9,1],[9,1],[9,1],[9,1]],
+symbols_: {"error":2,"P":3,"CANCION":4,"NOTA":5,";":6,"NOMBRE":7,"-":8,"SILENCIO":9,"TONO":10,"DO":11,"#":12,"RE":13,"b":14,"MI":15,"FA":16,"SOL":17,"LA":18,"SI":19,"R":20,"B":21,"N":22,"C":23,"SC":24,"$accept":0,"$end":1},
+terminals_: {2:"error",6:";",8:"-",10:"TONO",11:"DO",12:"#",13:"RE",14:"b",15:"MI",16:"FA",17:"SOL",18:"LA",19:"SI",20:"R",21:"B",22:"N",23:"C",24:"SC"},
+productions_: [0,[3,1],[4,2],[4,3],[5,5],[5,1],[7,1],[7,2],[7,2],[7,1],[7,2],[7,2],[7,1],[7,1],[7,2],[7,2],[7,1],[7,2],[7,2],[7,1],[7,2],[7,2],[7,1],[9,1],[9,1],[9,1],[9,1],[9,1]],
 performAction: function anonymous(yytext,yyleng,yylineno,yy,yystate,$$,_$) {
 
 var $0 = $$.length - 1;
@@ -21,32 +21,52 @@ case 5: this.$ = "{" + $$[$0] + "} ";
 break;
 case 6: this.$ = 0; 
 break;
-case 7: this.$ = 2; 
+case 7: this.$ = 1; 
 break;
-case 8: this.$ = 4; 
+case 8: this.$ = 2; 
 break;
-case 9: this.$ = 5; 
+case 9: this.$ = 3; 
 break;
-case 10: this.$ = 7; 
+case 10: this.$ = 4; 
 break;
-case 11: this.$ = 9; 
+case 11: this.$ = 5; 
 break;
-case 12: this.$ = 11; 
+case 12: this.$ = 6; 
 break;
-case 13: this.$ = 0; 
+case 13: this.$ = 7; 
 break;
-case 14: this.$ = 1; 
+case 14: this.$ = 8; 
 break;
-case 15: this.$ = 2; 
+case 15: this.$ = 9; 
 break;
-case 16: this.$ = 3; 
+case 16: this.$ = 10; 
 break;
-case 17: this.$ = 4; 
+case 17: this.$ = 11; 
+break;
+case 18: this.$ = 12; 
+break;
+case 19: this.$ = 13; 
+break;
+case 20: this.$ = 14; 
+break;
+case 21: this.$ = 15; 
+break;
+case 22: this.$ = 16; 
+break;
+case 23: this.$ = 0; 
+break;
+case 24: this.$ = 1; 
+break;
+case 25: this.$ = 2; 
+break;
+case 26: this.$ = 3; 
+break;
+case 27: this.$ = 4; 
 break;
 }
 },
-table: [{3:1,4:2,5:3,7:4,9:5,11:[1,6],12:[1,7],13:[1,8],14:[1,9],15:[1,10],16:[1,11],17:[1,12],18:[1,13],19:[1,14],20:[1,15],21:[1,16],22:[1,17]},{1:[3]},{1:[2,1]},{6:[1,18]},{8:[1,19]},{6:[2,5]},{8:[2,6]},{8:[2,7]},{8:[2,8]},{8:[2,9]},{8:[2,10]},{8:[2,11]},{8:[2,12]},{6:[2,13],8:[2,13]},{6:[2,14],8:[2,14]},{6:[2,15],8:[2,15]},{6:[2,16],8:[2,16]},{6:[2,17],8:[2,17]},{1:[2,2],4:20,5:3,7:4,9:5,11:[1,6],12:[1,7],13:[1,8],14:[1,9],15:[1,10],16:[1,11],17:[1,12],18:[1,13],19:[1,14],20:[1,15],21:[1,16],22:[1,17]},{9:21,18:[1,13],19:[1,14],20:[1,15],21:[1,16],22:[1,17]},{1:[2,3]},{8:[1,22]},{10:[1,23]},{6:[2,4]}],
-defaultActions: {2:[2,1],5:[2,5],6:[2,6],7:[2,7],8:[2,8],9:[2,9],10:[2,10],11:[2,11],12:[2,12],20:[2,3],23:[2,4]},
+table: [{3:1,4:2,5:3,7:4,9:5,11:[1,6],13:[1,7],15:[1,8],16:[1,9],17:[1,10],18:[1,11],19:[1,12],20:[1,13],21:[1,14],22:[1,15],23:[1,16],24:[1,17]},{1:[3]},{1:[2,1]},{6:[1,18]},{8:[1,19]},{6:[2,5]},{8:[2,6],12:[1,20]},{8:[2,9],12:[1,22],14:[1,21]},{8:[2,12],14:[1,23]},{8:[2,13],12:[1,24]},{8:[2,16],12:[1,26],14:[1,25]},{8:[2,19],12:[1,28],14:[1,27]},{8:[2,22],14:[1,29]},{6:[2,23],8:[2,23]},{6:[2,24],8:[2,24]},{6:[2,25],8:[2,25]},{6:[2,26],8:[2,26]},{6:[2,27],8:[2,27]},{1:[2,2],4:30,5:3,7:4,9:5,11:[1,6],13:[1,7],15:[1,8],16:[1,9],17:[1,10],18:[1,11],19:[1,12],20:[1,13],21:[1,14],22:[1,15],23:[1,16],24:[1,17]},{9:31,20:[1,13],21:[1,14],22:[1,15],23:[1,16],24:[1,17]},{8:[2,7]},{8:[2,8]},{8:[2,10]},{8:[2,11]},{8:[2,14]},{8:[2,15]},{8:[2,17]},{8:[2,18]},{8:[2,20]},{8:[2,21]},{1:[2,3]},{8:[1,32]},{10:[1,33]},{6:[2,4]}],
+defaultActions: {2:[2,1],5:[2,5],20:[2,7],21:[2,8],22:[2,10],23:[2,11],24:[2,14],25:[2,15],26:[2,17],27:[2,18],28:[2,20],29:[2,21],30:[2,3],33:[2,4]},
 parseError: function parseError(str, hash) {
     throw new Error(str);
 },
@@ -326,46 +346,30 @@ pushState:function begin(condition) {
 options: {},
 performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
 
+  var variables_musicales = { DO : 'DO', RE : 'RE', MI : 'MI', FA : 'FA', SOL : 'SOL', LA : 'LA', SI : 'SI', R : 'R', B : 'B', N : 'N', C : 'C', SC : 'SC' };
+
 var YYSTATE=YY_START;
 switch($avoiding_name_collisions) {
 case 0:/* skip whitespace */
 break;
 case 1:return 10
 break;
-case 2:return 8
+case 2:return 8 
 break;
 case 3:return 6
 break;
-case 4:return 11
+case 4:return 14
 break;
-case 5:return 12 
+case 5:return 12
 break;
-case 6:return 13
+case 6:return variables_musicales[yy_.yytext]
 break;
-case 7:return 14
-break;
-case 8:return 15
-break;
-case 9:return 16
-break;
-case 10:return 17
-break;
-case 11:return 18
-break;
-case 12:return 19
-break;
-case 13:return 20
-break;
-case 14:return 21
-break;
-case 15:return 22
-break;
-case 16:return 'INVALID'
+case 7:return 'INVALID'
 break;
 }
 },
-rules: [/^(?:\s+)/,/^(?:[0-9]+)/,/^(?:-)/,/^(?:;)/,/^(?:DO\b)/,/^(?:RE\b)/,/^(?:MI\b)/,/^(?:FA\b)/,/^(?:SOL\b)/,/^(?:LA\b)/,/^(?:SI\b)/,/^(?:R\b)/,/^(?:B\b)/,/^(?:N\b)/,/^(?:C\b)/,/^(?:SC\b)/,/^(?:.)/],
-conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"inclusive":true}}
+rules: [/^(?:\s+)/,/^(?:[0-9]+)/,/^(?:-)/,/^(?:;)/,/^(?:b\b)/,/^(?:#)/,/^(?:[A-Z]+)/,/^(?:.)/],
+conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7],"inclusive":true}}
 };
 return lexer;
 })();
