@@ -30,6 +30,7 @@
 %% /* language grammar */
 P         :   CANCION
                      {
+                         console.log($$);
                          return [ "<ul>\n<li> Música<p> "+ $$ + "\n </ul>"];
                      }
           ;

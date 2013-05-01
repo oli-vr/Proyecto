@@ -10,6 +10,7 @@ performAction: function anonymous(yytext,yyleng,yylineno,yy,yystate,$$,_$) {
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
+                         console.log(this.$);
                          return [ "<ul>\n<li> Música<p> "+ this.$ + "\n </ul>"];
                      
 break;
