@@ -1,0 +1,13 @@
+#!/bin/bash
+extencion=`echo $1 | cut -d'.' -f2`
+if [ "$extencion" == jm ]
+  then
+    if [ "$2" == -o ]  #permitimos modficador -o para que ele ejcutable tenga el nombre que quiera el usuario
+    then
+      `echo node jMusic.js $1` > $3   
+    else
+      `echo node jMusic.js $1` > a.out   #pasamos el contenido del fichero a jison y el resultado lo guardamos en a.out
+    fi
+  else
+    echo ERROR, archivo no válido, se esperaba ejemplo.jm
+fi
